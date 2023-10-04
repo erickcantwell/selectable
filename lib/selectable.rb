@@ -20,10 +20,12 @@ class Selectable
     @downcase = downcase
   end
 
-  # Returns an array of selectable modules and classes from the namespace
-  # provided
+  # Returns a hash of selectable modules and classes from the namespace
+  # provided and their mapped inputs
   #
-  # For convenience, it will coerce
+  # Example:
+  # s = Selectable.new(namespace: MyModules
+  # s.selectable
   def selectable
     return @selectable if @selectable
 
@@ -41,10 +43,20 @@ class Selectable
     @selectable = selector_data
   end
 
+  # Returns a flatted array of selectable inputs
+  #
+  # Example:
+  # s = Selectable.new(namespace: MyModules)
+  # s.selectors
   def selectors
     selectable.values.flatten
   end
 
+  # Returns true or false when given an input object
+  #
+  # Example:
+  # s = Selectable.new(namespace: MyModules)
+  # s.selectable?('someinput')
   def selectable?(object)
     object.downcase! if can_downcase(object)
     return true if selectors.include?(object)
@@ -52,6 +64,13 @@ class Selectable
     false
   end
 
+  # Returns the selected module or class based on the input given
+  #
+  # Example:
+  # s = Selectable.new(namespace: MyModules)
+  # selected_module = s.for('input')
+  #
+  # Raises "UnSelectable" if the input is not a valid selectable input
   def for(thing)
     selectable.each do |obj, values|
       thing.downcase! if can_downcase(thing)
