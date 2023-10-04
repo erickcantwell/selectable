@@ -10,15 +10,13 @@ Gem::Specification.new do |spec|
 
   spec.summary = "Create arbitrary selectable classes and modules"
   spec.description = "Load all of the classes and modules in a namespace so that they are selectable"
-  spec.homepage = "https://www.erickcantwell.com"
+  spec.homepage = "https://github.com/erickcantwell/selectable"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.0"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
-
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://somesourcecodeuri.com"
-  spec.metadata["changelog_uri"] = "https://somesourcecodeuri.com/CHANGELOG.md"
+  spec.metadata["source_code_uri"] = "https://github.com/erickcantwell/selectable.git"
+  spec.metadata["changelog_uri"] = "https://github.com/erickcantwell/selectable/blob/main/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
